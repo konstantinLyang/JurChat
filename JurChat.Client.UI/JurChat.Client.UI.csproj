@@ -10,4 +10,8 @@
     <Folder Include="LightMode\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="HandyControls" Version="3.4.5" />
+  </ItemGroup>
+
 </Project>

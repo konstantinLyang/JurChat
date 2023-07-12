@@ -19,7 +19,7 @@
                                        VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                        Text="{TemplateBinding Placeholder}"
-                                       Opacity="0.5"
+                                       Opacity="0.7"
                                        Panel.ZIndex="1"
                                        IsHitTestVisible="False"
                                        Visibility="{TemplateBinding IsEmpty, Converter={StaticResource BooleanToVisibilityConverter}}"/>

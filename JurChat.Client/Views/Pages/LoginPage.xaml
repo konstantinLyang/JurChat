@@ -3,41 +3,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:JurChat.Client.Views.Pages"
         xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
         xmlns:jui="clr-namespace:JurChat.Client.UI.Controls;assembly=JurChat.Client.UI.Controls"
-        mc:Ignorable="d"
-        Background="Transparent"
-        Title="LoginPage">
+        mc:Ignorable="d">
 
-    <Grid>
-        <Border BorderThickness="0,1,0,0">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition MaxWidth="200" MinWidth="200"/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition MaxWidth="200" MinWidth="200"/>
-                </Grid.ColumnDefinitions>
+    <Border VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF1C1C1C" CornerRadius="10">
+        <StackPanel Margin="35" VerticalAlignment="Center">
 
-                <StackPanel Grid.Column="1" Margin="0,100,0,50" VerticalAlignment="Center">
+            <TextBlock Text="Приветствую, пользователь!" FontWeight="DemiBold" FontSize="18" Margin="0,0,0,15" Style="{StaticResource GeneralTitle}"/>
 
-                    <TextBlock Text="Приветствую, пользователь!" FontSize="18" Margin="0,0,0,15" Style="{StaticResource GeneralTitle}"/>
+            <TextBlock TextWrapping="Wrap" Width="270" HorizontalAlignment="Left" Text="Пожалуйста, пройдите верификацию. Если Вы тут впервые, пройдите регистрацию."
+                       FontSize="13" Foreground="#FFAAAAA9" Margin="0,5,0,20" Style="{StaticResource GeneralText}"/>
 
-                    <TextBlock TextWrapping="Wrap" Width="270" HorizontalAlignment="Left" Text="Пожалуйста, пройдите верификацию. Если Вы тут впервые, пройдите регистрацию."
-                               FontSize="13" Foreground="#FF686F79" Margin="0,5,0,20" Style="{StaticResource GeneralText}"/>
+            <jui:PlaceholderTextBox Padding="8 2" BorderBrush="SlateGray" Placeholder="Логин" BorderThickness="0,0,0,1" FontSize="14" Height="40" Style="{StaticResource BaseTextBox}"/>
 
-                    <jui:PlaceholderTextBox Padding="8 2" Placeholder="Логин" Background="Transparent" BorderThickness="0,0,0,1" FontSize="15" Height="40" VerticalContentAlignment="Center"/>
+            <jui:PlaceholderTextBox Padding="8 2" BorderBrush="SlateGray" Placeholder="Пароль" BorderThickness="0,0,0,1" FontSize="14" Height="40" Style="{StaticResource BaseTextBox}"/>
 
-                    <jui:PlaceholderTextBox Padding="8 2" Placeholder="Пароль" Background="Transparent" BorderThickness="0,0,0,1" FontSize="15" Height="40" VerticalContentAlignment="Center"/>
+            <Button Style="{StaticResource GeneralButton}" FontWeight="Normal" Content="Продолжить" Command="{Binding AuthorizationCommand}" Height="40" FontSize="13" Margin="0,30,0,30"/>
 
-                    <Button Style="{StaticResource GeneralButton}" Content="Войти" Command="{Binding AuthorizationCommand}" Margin="0,30,0,30"/>
+            <Button Background="Transparent" Cursor="Hand" Content="Регистрация" Style="{StaticResource GeneralButton}" Height="24" Margin="0,5" FontSize="12" Width="100" Command="{Binding OpenRegisterWindowCommand}"/>
 
-                    <Button Cursor="Hand" Content="Регистрация" Style="{StaticResource GeneralButton}" Height="24" Margin="0,5" FontSize="12" Width="100" Command="{Binding OpenRegisterWindowCommand}"/>
-
-                    <TextBlock Text="{Binding InfoTextBlock}" Foreground="{Binding ForegroundInfoTextBlock}" TextWrapping="Wrap" Visibility="{Binding InfoTextBlockVisibility}" VerticalAlignment="Top" Margin="0,30,0,15"/>
-
-                </StackPanel>
-            </Grid>
-        </Border>
-    </Grid>
+            <TextBlock Text="{Binding InfoTextBlock}" Foreground="{Binding ForegroundInfoTextBlock}" TextWrapping="Wrap" Visibility="{Binding InfoTextBlockVisibility}" VerticalAlignment="Top" Margin="0,15,0,0"/>
+        </StackPanel>
+    </Border>
 </Page>

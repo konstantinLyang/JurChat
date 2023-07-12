@@ -1,15 +1,20 @@
 ﻿using DevExpress.Mvvm;
+using JurChat.Client.Services.Interfaces;
 
 namespace JurChat.Client.ViewModels.Pages
 {
     internal class LoginPageViewModel : BindableBase
     {
-        public string Login { get; set; }
-        public string Password { get; set; }
+        private readonly IUserDialogService _userDialogService;
 
-        public LoginPageViewModel()
+        public string? Login { get; set; }
+        public string? Password { get; set; }
+
+        public DelegateCommand OpenRegisterWindowCommand => new(() => { _userDialogService.ShowRegisterPage(); });
+
+        public LoginPageViewModel(IUserDialogService userDialogService)
         {
-            
+            _userDialogService = userDialogService;
         }
     }
 }

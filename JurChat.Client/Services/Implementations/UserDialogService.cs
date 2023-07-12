@@ -4,6 +4,7 @@ using System.IO;
 using JurChat.Client.Services.Interfaces;
 using JurChat.Client.ViewModels.Windows;
 using JurChat.Client.Views.Pages;
+using JurChat.Client.Views.Windows;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace JurChat.Client.Services.Implementations
