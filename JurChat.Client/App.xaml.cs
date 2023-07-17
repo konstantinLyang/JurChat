@@ -22,6 +22,7 @@ namespace JurChat.Client
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<MainPageViewModel>();
             services.AddSingleton<SettingsPageViewModel>();
+            services.AddSingleton<RegisterPageViewModel>();
 
             services.AddTransient<LoginPageViewModel>();
 
@@ -31,7 +32,7 @@ namespace JurChat.Client
             services.AddTransient(s => new MainPage() { DataContext = _services.GetRequiredService<MainPageViewModel>() });
             services.AddTransient(s => new SettingsPage() { DataContext = _services.GetRequiredService<SettingsPageViewModel>() });
             services.AddTransient(s => new LoginPage() { DataContext = _services.GetRequiredService<LoginPageViewModel>() });
-            services.AddTransient(s => new RegisterPage() { DataContext = new RegisterPageViewModel() });
+            services.AddTransient(s => new RegisterPage() { DataContext = _services.GetRequiredService<RegisterPageViewModel>() });
 
             return services;
         }
