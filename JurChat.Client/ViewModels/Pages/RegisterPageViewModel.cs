@@ -220,6 +220,7 @@ namespace JurChat.Client.ViewModels.Pages
         {
             _userDialogService = userDialogService;
         }
+
         public RegisterPageViewModel() { }
     }
 }
