@@ -22,9 +22,11 @@
             <TextBlock TextWrapping="Wrap" Width="270" HorizontalAlignment="Left" Text="Пожалуйста, пройдите верификацию. Если Вы тут впервые, пройдите регистрацию."
                        FontSize="13" Foreground="#FF686F79" Margin="0,5,0,20" Style="{StaticResource GeneralText}"/>
 
-            <jui:PlaceholderTextBox Padding="8 2" BorderBrush="SlateGray" Placeholder="Логин" BorderThickness="0,0,0,1" FontSize="14" Height="40" Style="{StaticResource BaseTextBox}"/>
+            <jui:PlaceholderTextBox Padding="8 2" BorderBrush="SlateGray" Placeholder="Логин*" BorderThickness="0,0,0,1" Height="40" Style="{StaticResource BaseTextBox}" Margin="0,15,0,0"/>
 
-            <jui:PlaceholderTextBox Padding="8 2" BorderBrush="SlateGray" Placeholder="Пароль" BorderThickness="0,0,0,1" FontSize="14" Height="40" Style="{StaticResource BaseTextBox}"/>
+            <jui:PlaceholderTextBox Padding="8 2" BorderBrush="SlateGray" Placeholder="Пароль*" BorderThickness="0,0,0,1" Height="40" Style="{StaticResource BaseTextBox}" Margin="0,15,0,15"/>
+
+            <CheckBox BorderThickness="0" FontSize="13" Content="Остваться в системе" Cursor="Hand" Margin="2,15"/>
 
             <Button Style="{StaticResource GeneralButton}" FontWeight="Normal" Content="Продолжить" Command="{Binding AuthorizationCommand}" Height="40" FontSize="13" Margin="0,30,0,30"/>
 

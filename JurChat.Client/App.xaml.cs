@@ -28,11 +28,11 @@ namespace JurChat.Client
 
             services.AddSingleton<IUserDialogService, UserDialogService>();
 
-            services.AddTransient(s => new MainWindow() { DataContext = _services.GetRequiredService<MainWindowViewModel>() });
-            services.AddTransient(s => new MainPage() { DataContext = _services.GetRequiredService<MainPageViewModel>() });
-            services.AddTransient(s => new SettingsPage() { DataContext = _services.GetRequiredService<SettingsPageViewModel>() });
-            services.AddTransient(s => new LoginPage() { DataContext = _services.GetRequiredService<LoginPageViewModel>() });
-            services.AddTransient(s => new RegisterPage() { DataContext = _services.GetRequiredService<RegisterPageViewModel>() });
+            services.AddSingleton(s => new MainWindow() { DataContext = _services.GetRequiredService<MainWindowViewModel>() });
+            services.AddSingleton(s => new MainPage() { DataContext = _services.GetRequiredService<MainPageViewModel>() });
+            services.AddSingleton(s => new SettingsPage() { DataContext = _services.GetRequiredService<SettingsPageViewModel>() });
+            services.AddSingleton(s => new LoginPage() { DataContext = _services.GetRequiredService<LoginPageViewModel>() });
+            services.AddSingleton(s => new RegisterPage() { DataContext = _services.GetRequiredService<RegisterPageViewModel>() });
 
             return services;
         }
