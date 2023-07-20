@@ -4,22 +4,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows.Input;
 using DevExpress.Mvvm;
 using HandyControl.Tools.Command;
 using JurChat.Client.Services.Interfaces;
-using DelegateCommand = DevExpress.Mvvm.DelegateCommand;
 
 namespace JurChat.Client.ViewModels.Pages
 {
-    internal class RegisterPageViewModel : BindableBase, INotifyDataErrorInfo
+    public class RegisterPageViewModel : BindableBase, INotifyDataErrorInfo
     {
         private readonly IUserDialogService _userDialogService;
 
         #region Fields
 
         private string _lastName;
-
         public string LastName
         {
             get => _lastName;
@@ -35,8 +32,8 @@ namespace JurChat.Client.ViewModels.Pages
             }
         }
 
-        private string _firstName;
 
+        private string _firstName;
         public string FirstName
         {
             get => _firstName;
@@ -52,8 +49,8 @@ namespace JurChat.Client.ViewModels.Pages
             }
         }
 
-        private string _fatherName;
 
+        private string _fatherName;
         public string FatherName
         {
             get => _fatherName;
@@ -69,8 +66,8 @@ namespace JurChat.Client.ViewModels.Pages
             }
         }
 
-        private string _email;
 
+        private string _email;
         public string Email
         {
             get => _email;
@@ -86,8 +83,8 @@ namespace JurChat.Client.ViewModels.Pages
             }
         }
 
-        private string _login;
 
+        private string _login;
         public string Login
         {
             get => _login;
@@ -103,8 +100,8 @@ namespace JurChat.Client.ViewModels.Pages
             }
         }
 
-        private string _firstPassword;
 
+        private string _firstPassword;
         public string FirstPassword
         {
             get => _firstPassword;
@@ -127,8 +124,8 @@ namespace JurChat.Client.ViewModels.Pages
             }
         }
 
-        private string _secondPassword;
 
+        private string _secondPassword;
         public string SecondPassword
         {
             get => _secondPassword;
@@ -168,6 +165,8 @@ namespace JurChat.Client.ViewModels.Pages
 
         public string UserPhotoFilePath { get; set; }
 
+        public string Info { get; set; }
+
         #endregion
 
         #region ERROR LOGIC
@@ -175,37 +174,33 @@ namespace JurChat.Client.ViewModels.Pages
         private readonly Dictionary<string, List<string>> _propertyErrors = new();
         public IEnumerable GetErrors(string? propertyName) => _propertyErrors.GetValueOrDefault(propertyName, null);
         public bool HasErrors => _propertyErrors.Any();
-
         public void AddError(string propertyName, string errorMessage)
         {
             if (!_propertyErrors.ContainsKey(propertyName)) _propertyErrors.Add(propertyName, new());
             _propertyErrors[propertyName].Add(errorMessage);
             OnErrorsChanged(propertyName);
         }
-
         private void ClearAllErrors(string propertyName)
         {
             if (_propertyErrors.Remove(propertyName)) OnErrorsChanged(propertyName);
         }
-
         private void OnErrorsChanged(string propertyName)
         {
             ErrorsChanged?.Invoke(this, new(propertyName));
         }
-
         public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
         #endregion
 
         #region Commands
 
-        public DelegateCommand ComeToLoginPageCommand => new(() => { _userDialogService.ShowLoginPage(); });
-        public DelegateCommand ChangeUserImageCommand => new(() => { _userDialogService.ShowLoginPage(); });
-        public ICommand RegistrationCommand => new RelayCommand(delegate { }, CanRegistration);
+        public RelayCommand ComeToLoginPageCommand => new(delegate { _userDialogService.ShowLoginPage(); });
+        public RelayCommand ChangeUserImageCommand => new(delegate { _userDialogService.ShowLoginPage(); });
+        public RelayCommand RegistrationCommand => new (delegate { }, CanRegistration);
 
         #endregion
 
-        public bool CanRegistration(object args)
+        public bool CanRegistration(object p)
         {
             return (!string.IsNullOrEmpty(LastName) && !string.IsNullOrEmpty(FirstName) && !string.IsNullOrEmpty(Login) 
                     && !string.IsNullOrEmpty(FirstPassword) && !string.IsNullOrEmpty(SecondPassword) && !string.IsNullOrEmpty(NickName)) && !HasErrors;
@@ -216,11 +211,9 @@ namespace JurChat.Client.ViewModels.Pages
            return !string.IsNullOrEmpty(str) && !Regex.IsMatch(str, @"^[a-zA-Z0-9а-яА-Я ]*$");
         }
 
-        public RegisterPageViewModel(IUserDialogService userDialogService) : this()
+        public RegisterPageViewModel(IUserDialogService userDialogService)
         {
             _userDialogService = userDialogService;
         }
-
-        public RegisterPageViewModel() { }
     }
 }

@@ -3,14 +3,34 @@ using JurChat.Client.Services.Interfaces;
 
 namespace JurChat.Client.ViewModels.Pages
 {
-    internal class LoginPageViewModel : BindableBase
+    public class LoginPageViewModel : BindableBase
     {
         private readonly IUserDialogService _userDialogService;
 
-        public string? Login { get; set; }
-        public string? Password { get; set; }
+        #region Fields
+
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public string Info { get; set; }
+        public bool RememberUser { get; set; }
+
+        #endregion
+
+        #region Commands
+
+        public DelegateCommand<object> AuthorizationCommand => new(OnAuthorization, CanAuthorizationCommand);
+        private void OnAuthorization(object p)
+        {
+
+        }
+        private bool CanAuthorizationCommand(object p)
+        {
+            return !string.IsNullOrEmpty(Login) && !string.IsNullOrEmpty(Password);
+        }
 
         public DelegateCommand OpenRegisterWindowCommand => new(() => { _userDialogService.ShowRegisterPage(); });
+
+        #endregion
 
         public LoginPageViewModel(IUserDialogService userDialogService)
         {

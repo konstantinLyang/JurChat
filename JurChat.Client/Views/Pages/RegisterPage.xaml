@@ -87,7 +87,7 @@
 
                         <Button Command="{Binding RegistrationCommand}" Content="Регистрация" Style="{StaticResource GeneralButton}" Margin="0,30,0,15"/>
 
-                        <TextBlock Text="{Binding InfoTextBlock}" Foreground="Red" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,15,0,0"/>
+                        <TextBlock Text="{Binding Info}" Foreground="Red" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,15,0,0"/>
 
                         <Button HorizontalAlignment="Center" Content="Вернуться" Background="Transparent" BorderThickness="0" Command="{Binding ComeToLoginPageCommand}" Cursor="Hand"/>
 

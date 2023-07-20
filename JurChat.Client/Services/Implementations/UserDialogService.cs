@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
 using JurChat.Client.Services.Interfaces;
 using JurChat.Client.ViewModels.Windows;
 using JurChat.Client.Views.Pages;
@@ -9,46 +7,34 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace JurChat.Client.Services.Implementations
 {
-    internal class UserDialogService : IUserDialogService
+    public class UserDialogService : IUserDialogService
     {
         private readonly IServiceProvider _serviceProvider;
 
         private MainWindow? _mainWindow;
-        private MainWindowViewModel _mainWindowViewModel;
-
+        private MainWindowViewModel? _mainWindowViewModel;
         private MainPage? _mainPage;
         private LoginPage? _loginPage;
         private RegisterPage? _registerPage;
         private SettingsPage? _settingsPage;
 
-        public UserDialogService(IServiceProvider serviceProvider)
-        {
-            _serviceProvider = serviceProvider;
-        }
-
         public void StartApplication()
         {
-            Process[] processesList =
-                Process.GetProcessesByName(
-                    new FileInfo(Process.GetCurrentProcess().MainModule?.FileName!).Name.Replace(".exe", ""));
+            //TODO: закрытие проги, если уже открыта
 
-            if (processesList.Length > 1) CloseApplication();
-
-            if (_mainWindow is { } window)
+            if (_mainWindow != null)
             {
-                window.Show();
+                _mainWindow.Show();
                 return;
             }
 
-            window = _serviceProvider.GetService<MainWindow>();
+            _mainWindow = _serviceProvider.GetService<MainWindow>();
             
             _mainWindowViewModel = _serviceProvider.GetRequiredService<MainWindowViewModel>();
 
-            _mainWindow = window;
-
             ShowLoginPage();
 
-            window.Show();
+            _mainWindow.Show();
         }
 
         public void CloseApplication()
@@ -59,62 +45,59 @@ namespace JurChat.Client.Services.Implementations
 
         public void ShowLoginPage()
         {
-            if (_loginPage is { } page)
+            if (_loginPage != null)
             {
-                _mainWindowViewModel.Page = page;
+                _mainWindowViewModel.Page = _loginPage;
                 return;
             }
 
-            page = _serviceProvider.GetRequiredService<LoginPage>();
+            _loginPage = _serviceProvider.GetRequiredService<LoginPage>();
 
-            _mainWindowViewModel.Page = page;
-
-            _loginPage = page;
+            _mainWindowViewModel.Page = _loginPage;
         }
 
         public void ShowRegisterPage()
         {
-            if (_registerPage is { } page)
+            if (_registerPage != null)
             {
-                _mainWindowViewModel.Page = page;
+                _mainWindowViewModel.Page = _registerPage;
                 return;
             }
 
-            page = _serviceProvider.GetRequiredService<RegisterPage>();
+            _registerPage = _serviceProvider.GetRequiredService<RegisterPage>();
 
-            _mainWindowViewModel.Page = page;
-
-            _registerPage = page;
+            _mainWindowViewModel.Page = _registerPage;
         }
 
         public void ShowMainPage()
         {
-            if (_mainPage is { } page)
+            if (_mainPage != null)
             {
-                _mainWindowViewModel.Page = page;
+                _mainWindowViewModel.Page = _mainPage;
                 return;
             }
 
-            page = _serviceProvider.GetRequiredService<MainPage>();
+            _mainPage = _serviceProvider.GetRequiredService<MainPage>();
 
-            _mainWindowViewModel.Page = page;
-
-            _mainPage = page;
+            _mainWindowViewModel.Page = _mainPage;
         }
 
         public void ShowSettingsPage()
         {
-            if (_settingsPage is { } page)
+            if (_settingsPage != null)
             {
-                _mainWindowViewModel.Page = page;
+                _mainWindowViewModel.Page = _settingsPage;
                 return;
             }
 
-            page = _serviceProvider.GetRequiredService<SettingsPage>();
+            _settingsPage = _serviceProvider.GetRequiredService<SettingsPage>();
 
-            _mainWindowViewModel.Page = page;
+            _mainWindowViewModel.Page = _settingsPage;
+        }
 
-            _settingsPage = page;
+        public UserDialogService(IServiceProvider serviceProvider)
+        {
+            _serviceProvider = serviceProvider;
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace JurChat.Client.Services.Interfaces
 {
-    internal interface IUserDialogService
+    public interface IUserDialogService
     {
         public void StartApplication();
         public void CloseApplication();
