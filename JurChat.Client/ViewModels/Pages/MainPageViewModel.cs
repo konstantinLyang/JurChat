@@ -1,12 +1,14 @@
-﻿using DevExpress.Mvvm;
+﻿using System.Windows;
+using DevExpress.Mvvm;
+using HandyControl.Tools.Command;
 using DelegateCommand = DevExpress.Mvvm.DelegateCommand;
 
 namespace JurChat.Client.ViewModels.Pages
 {
     internal class MainPageViewModel : BindableBase
     {
-        public double Width { get; set; }
-        public double Height { get; set; }
+        public string MessageText { get; set; }
+        public double RightPanelMinWidth { get; set; }
 
         #region Fields
 
@@ -14,11 +16,17 @@ namespace JurChat.Client.ViewModels.Pages
 
         #endregion
 
-
         #region Commands
 
-        public DelegateCommand FindUserCommand = new(() => {  });
-        public DelegateCommand OpenRightPanelCommand = new(() => {  });
+        public DelegateCommand FindUserCommand;
+
+        public DelegateCommand OpenRightPanelCommand;
+
+        public DelegateCommand SendMessageCommand => new(OnSendMessage);
+        private void OnSendMessage()
+        {
+
+        }
 
         #endregion
 

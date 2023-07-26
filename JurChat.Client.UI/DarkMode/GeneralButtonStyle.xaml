@@ -10,7 +10,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <SolidColorBrush x:Key="Button.Static.Background" Color="#414e73"/>
+    <SolidColorBrush x:Key="Button.Static.Background" Color="#FF3D60C5"/>
 
     <Style TargetType="{x:Type Button}" x:Key="GeneralButton">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>

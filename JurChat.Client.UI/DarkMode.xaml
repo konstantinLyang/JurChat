@@ -2,9 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="https://handyorg.github.io/handycontrol">
 
-    <SolidColorBrush x:Key="FirstBackgroundBrush" Color="Black"/>
-    <SolidColorBrush x:Key="GeneralBorderThinkersBrush" Color="#757575"/>
-    <SolidColorBrush x:Key="GeneralBorderBackground" Color="#FF191C21"/>
+    <SolidColorBrush x:Key="FirstBackgroundBrush" Color="#FF18191D"/>
+    <SolidColorBrush x:Key="GeneralBorderThinkersBrush" Color="Gray"/>
+    <SolidColorBrush x:Key="GeneralBorderBackground" Color="#FF282E33"/>
+    <SolidColorBrush x:Key="ChatBackground" Color="#FF18191D"/>
+    <SolidColorBrush x:Key="TitleBarBrush" Color="#3a4047"/>
+
     <ResourceDictionary.MergedDictionaries>
 
         <hc:ThemeResources RequestedTheme="Dark"/>

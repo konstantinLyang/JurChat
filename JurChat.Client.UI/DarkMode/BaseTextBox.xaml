@@ -3,7 +3,6 @@
     <Style TargetType="TextBox" x:Key="BaseTextBox">
         <Setter Property="CaretBrush" Value="White"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="BorderBrush" Value="{StaticResource GeneralBorderBrush}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Height" Value="35"/>
         <Setter Property="FontSize" Value="14"/>
