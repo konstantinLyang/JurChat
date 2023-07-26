@@ -10,7 +10,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <SolidColorBrush x:Key="Button.Static.Background" Color="#414e73"/>
+    <SolidColorBrush x:Key="Button.Static.Background" Color="#29b0ff"/>
 
     <Style TargetType="{x:Type Button}" x:Key="GeneralButton">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
@@ -53,8 +53,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Height" Value="44"/>
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Foreground" Value="Black"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="1"/>

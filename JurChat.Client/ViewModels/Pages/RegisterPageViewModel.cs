@@ -109,7 +109,7 @@ namespace JurChat.Client.ViewModels.Pages
             {
                 _firstPassword = value;
 
-                if (_firstPassword == SecondPassword)
+                if (_firstPassword == _secondPassword)
                 {
                     ClearAllErrors(nameof(SecondPassword));
                     ClearAllErrors(nameof(FirstPassword));
@@ -135,8 +135,9 @@ namespace JurChat.Client.ViewModels.Pages
 
                 ClearAllErrors(nameof(SecondPassword));
 
-                if (string.IsNullOrEmpty(_firstPassword)) AddError(nameof(_secondPassword), "Первый пароль пуст!");
+                if (string.IsNullOrEmpty(_firstPassword)) AddError(nameof(SecondPassword), "Первый пароль пуст!");
                 else ClearAllErrors(nameof(FirstPassword));
+                
                 if (_secondPassword != _firstPassword)
                 {
                     AddError(nameof(SecondPassword), "Пароли не совпадают!");

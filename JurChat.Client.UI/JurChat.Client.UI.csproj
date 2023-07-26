@@ -7,11 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="LightMode\" />
+    <PackageReference Include="HandyControls" Version="3.4.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HandyControls" Version="3.4.5" />
+    <Page Update="LightMode\BaseTextBox.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="LightMode\GeneralButtonStyle.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="LightMode\GeneralTextBlock.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
   </ItemGroup>
 
 </Project>

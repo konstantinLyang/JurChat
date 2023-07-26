@@ -14,6 +14,16 @@ namespace JurChat.Client.UI.Controls
             set { SetValue(PlaceholderProperty, value); }
         }
 
+        public static readonly DependencyProperty CornerRadiusProperty =
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(PlaceholderTextBox),
+                new PropertyMetadata(new CornerRadius (0,0,0,0)));
+
+        public CornerRadius CornerRadius
+        {
+            get { return (CornerRadius)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
+        }
+
         private static readonly DependencyPropertyKey IsEmptyPropertyKey =
             DependencyProperty.RegisterReadOnly("IsEmpty", typeof(bool), typeof(PlaceholderTextBox),
                 new PropertyMetadata(true));

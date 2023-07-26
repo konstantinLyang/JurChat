@@ -1,7 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="https://handyorg.github.io/handycontrol">
-    
+
+    <SolidColorBrush x:Key="FirstBackgroundBrush" Color="Black"/>
+    <SolidColorBrush x:Key="GeneralBorderThinkersBrush" Color="#757575"/>
+    <SolidColorBrush x:Key="GeneralBorderBackground" Color="#FF191C21"/>
     <ResourceDictionary.MergedDictionaries>
 
         <hc:ThemeResources RequestedTheme="Dark"/>

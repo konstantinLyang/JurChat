@@ -21,7 +21,7 @@ namespace JurChat.Client.ViewModels.Pages
         public DelegateCommand<object> AuthorizationCommand => new(OnAuthorization, CanAuthorizationCommand);
         private void OnAuthorization(object p)
         {
-
+            _userDialogService.ShowMainPage();
         }
         private bool CanAuthorizationCommand(object p)
         {

@@ -12,7 +12,7 @@
                         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
                         <converters:AddLeftPaddingConverter x:Key="AddLeftPaddingConverter"/>
                     </ControlTemplate.Resources>
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type local:PlaceholderTextBox}}, Mode=TwoWay}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid>
                             <ScrollViewer x:Name="PART_ContentHost"/>
                             <TextBlock Padding="{TemplateBinding Padding, Converter={StaticResource AddLeftPaddingConverter}, ConverterParameter=3}"
