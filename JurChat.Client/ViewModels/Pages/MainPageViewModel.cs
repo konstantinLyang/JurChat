@@ -1,6 +1,4 @@
-﻿using System.Windows;
-using DevExpress.Mvvm;
-using HandyControl.Tools.Command;
+﻿using DevExpress.Mvvm;
 using DelegateCommand = DevExpress.Mvvm.DelegateCommand;
 
 namespace JurChat.Client.ViewModels.Pages

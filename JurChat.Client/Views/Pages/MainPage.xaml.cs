@@ -35,7 +35,6 @@ namespace JurChat.Client.Views.Pages
                 MainGrid.ColumnDefinitions[1].MaxWidth = 350;
                 RightGrid.Visibility = Visibility.Visible;
             }
-
         }
     }
 }

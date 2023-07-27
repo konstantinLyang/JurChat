@@ -9,7 +9,7 @@
 
             <ResourceDictionary.MergedDictionaries>
 
-                <ResourceDictionary Source="pack://application:,,,/JurChat.Client.UI;component/DarkMode.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/JurChat.Client.UI;component/LightMode.xaml"/>
 
             </ResourceDictionary.MergedDictionaries>
 

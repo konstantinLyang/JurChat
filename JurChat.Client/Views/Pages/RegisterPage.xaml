@@ -40,7 +40,7 @@
                 <Grid Width="400">
                     <StackPanel VerticalAlignment="Center" Margin="30">
 
-                        <TextBlock Text="Регистрация" FontSize="18" Style="{StaticResource GeneralTitle}" HorizontalAlignment="Left" Margin="0,0,0,15"/>
+                        <TextBlock Text="Регистрация" FontSize="18" Style="{StaticResource GeneralTitle}" HorizontalAlignment="Left" Margin="0,15,0,15"/>
                         <TextBlock Text="Заполните необходимые поля (*), при возможности заполните дополнительные." FontSize="13"  Width="270" HorizontalAlignment="Left" TextWrapping="Wrap" Style="{StaticResource  GeneralText}"  Margin="0,0,0,30"/>
 
                         <Grid Margin="0,5">
