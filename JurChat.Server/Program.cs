@@ -11,19 +11,7 @@ namespace JurChat.Server
 
             Console.WriteLine($"{DateTime.Now:dd.MM.yyyy hh:mm:zzzz} запуск сервера");
 
-            ChatServer server = new ChatServer(8080);
-            Task servertask = server.ListenAsync();
-            while (true)
-            {
-                string input = Console.ReadLine();
-                if (input == "stop")
-                {
-                    Console.WriteLine("Остановка сервера...");
-                    await server.StopAsync();
-                    break;
-                }
-            }
-            await servertask;
+
 
             Console.WriteLine($"{DateTime.Now:dd.MM.yyyy hh:mm:zzzz} конец работы сервера");
         }
