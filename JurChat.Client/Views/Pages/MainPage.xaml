@@ -39,17 +39,18 @@
                         <TextBlock Grid.Column="0" Padding="15,0,0,0" Text="{Binding SelectedChat.Title}" Style="{StaticResource GeneralTitle}"/>
 
                         <StackPanel Grid.Column="1" Orientation="Horizontal" >
-                            <Button Style="{StaticResource TransparentButton}" Height="40" Width="40">
+                            <Button Style="{StaticResource TransparentButton}" Height="40" Width="40" Cursor="Hand">
                                 <Path Data="M12 6.5C12 9.53757 9.53757 12 6.5 12C3.46243 12 1 9.53757 1 6.5C1 3.46243 3.46243 1 6.5 1C9.53757 1 12 3.46243 12 6.5ZM10.3347 11.7489C9.25973 12.5356 7.9341 13 6.5 13C2.91015 13 0 10.0899 0 6.5C0 2.91015 2.91015 0 6.5 0C10.0899 0 13 2.91015 13 6.5C13 8.29493 12.2725 9.91993 11.0962 11.0962L16 16L15.2929 16.7071L10.3347 11.7489Z" Stroke="{StaticResource GeneralBorderThinkersBrush}"/>
                             </Button>
-                            <Button Style="{StaticResource TransparentButton}" Height="40" Width="40">
+                            <Button Style="{StaticResource TransparentButton}" Height="40" Width="40" Cursor="Hand">
                                 <Path Data="M4 2C4 3.10457 3.10457 4 2 4C0.89543 4 0 3.10457 0 2C0 0.895431 0.89543 0 2 0C3.10457 0 4 0.895431 4 2ZM4 16C4 17.1046 3.10457 18 2 18C0.89543 18 0 17.1046 0 16C0 14.8954 0.89543 14 2 14C3.10457 14 4 14.8954 4 16ZM2 11C3.10457 11 4 10.1046 4 9C4 7.89543 3.10457 7 2 7C0.89543 7 0 7.89543 0 9C0 10.1046 0.89543 11 2 11Z" Fill="{StaticResource GeneralBorderThinkersBrush}" />
                             </Button>
                         </StackPanel>
 
                     </Grid>
                 </Border>
-                <Border Grid.Row="1" Background="{StaticResource ChatBackground}"></Border>
+                <Border Grid.Row="1" Background="{StaticResource ChatBackground}">
+                </Border>
                 <Border Grid.Row="2" BorderThickness="0,0.5,0.5,0" BorderBrush="{StaticResource GeneralBorderThinkersBrush}">
                     <Grid>
                         <Grid.ColumnDefinitions>

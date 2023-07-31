@@ -23,7 +23,7 @@ namespace JurChat.Client.Views.Pages
 
         private void Page_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            if (e.NewSize.Width < 700)
+            if (e.NewSize.Width < 600)
             {
                 MainGrid.ColumnDefinitions[1].MinWidth = 0;
                 MainGrid.ColumnDefinitions[1].MaxWidth = 0;

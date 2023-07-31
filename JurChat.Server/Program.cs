@@ -1,20 +1,16 @@
-﻿using System.Text;
+using JurChat.Server.Hubs;
+using JurChat.Server.Hubs.Infrastructure;
 
-namespace JurChat.Server
-{
-    public static class Program
-    {
-        static async Task Main(string[] args)
-        {
-            Console.OutputEncoding = Encoding.UTF8;
-            Console.InputEncoding = Encoding.UTF8;
+var builder = WebApplication.CreateBuilder(args);
 
-            Console.WriteLine($"{DateTime.Now:dd.MM.yyyy hh:mm:zzzz} запуск сервера");
+builder.Services.AddSignalR();
+builder.Services.AddSingleton<ChatHubManager>();
 
+var app = builder.Build();
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
-            Console.WriteLine($"{DateTime.Now:dd.MM.yyyy hh:mm:zzzz} конец работы сервера");
-        }
-    }
-}
+app.MapHub<ChatHub>("/chat");
 
+app.Run();

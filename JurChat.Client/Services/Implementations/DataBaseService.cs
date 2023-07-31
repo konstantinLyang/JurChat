@@ -9,8 +9,7 @@ namespace JurChat.Client.Services.Implementations
     public class DataBaseService : IDataBaseService
     {
         private readonly AppContext _dbContext;
-
-        private readonly ICurrentClientService _currentClient;
+        
 
         public Chat GetChatById(string id)
         {
@@ -44,7 +43,7 @@ namespace JurChat.Client.Services.Implementations
             var clients = _dbContext.Clients;
             var chats = _dbContext.Chats;
 
-            foreach (var client in clients)
+            /*foreach (var client in clients)
             {
                 var lastMessage = _dbContext.Messages.Last(x => x.Recipient.Id == client.Id && x.Sender.Id == _currentClient.UserData.Id);
                 result.Add(new()
@@ -68,14 +67,13 @@ namespace JurChat.Client.Services.Implementations
                     LastMessageDateTime = lastMessage.CreationDateTime,
                     Photo = chat.Photo
                 });
-            }
+            }*/
 
             return result;
         }
 
-        public DataBaseService(ICurrentClientService currentClient)
+        public DataBaseService()
         {
-            _currentClient = currentClient;
             _dbContext = new();
         }
     }
