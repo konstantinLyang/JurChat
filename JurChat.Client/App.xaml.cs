@@ -27,7 +27,6 @@ namespace JurChat.Client
             services.AddTransient<LoginPageViewModel>();
 
             services.AddSingleton<IUserDialogService, UserDialogService>();
-            services.AddTransient<IDataBaseService, DataBaseService>();
 
             services.AddSingleton(s => new MainWindow() { DataContext = _services.GetRequiredService<MainWindowViewModel>() });
             services.AddSingleton(s => new MainPage() { DataContext = _services.GetRequiredService<MainPageViewModel>() });

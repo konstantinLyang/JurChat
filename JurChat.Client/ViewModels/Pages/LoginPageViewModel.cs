@@ -1,10 +1,12 @@
 ﻿using DevExpress.Mvvm;
+using JurChat.Client.Persistence;
 using JurChat.Client.Services.Interfaces;
 
 namespace JurChat.Client.ViewModels.Pages
 {
     public class LoginPageViewModel : BindableBase
     {
+        private readonly ApplicationDbContext _dbContext;
         private readonly IUserDialogService _userDialogService;
 
         #region Fields
@@ -35,6 +37,7 @@ namespace JurChat.Client.ViewModels.Pages
         public LoginPageViewModel(IUserDialogService userDialogService)
         {
             _userDialogService = userDialogService;
+            _dbContext = new ApplicationDbContext();
         }
     }
 }

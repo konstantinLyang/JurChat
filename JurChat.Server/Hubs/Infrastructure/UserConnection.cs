@@ -21,6 +21,8 @@
                         .Select(x => x.ConnectedAt)
                         .First();
                 }
+
+                return new DateTime();
             }
         }
 
