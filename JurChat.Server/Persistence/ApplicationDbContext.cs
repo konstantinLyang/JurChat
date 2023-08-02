@@ -6,12 +6,12 @@ namespace JurChat.Server.Persistence
     public sealed class ApplicationDbContext  : DbContext
     {
 
-        public DbSet<Chat> Chats { get; set; }
-        public DbSet<ChatTask> ChatTasks { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<MessageFile> MessageFiles { get; set; }
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Chat> Chats => Set<Chat>();
+        public DbSet<ChatTask> ChatTasks => Set<ChatTask>();
+        public DbSet<Message> Messages => Set<Message>();
+        public DbSet<MessageFile> MessageFiles => Set<MessageFile>();
+        public DbSet<Project> Projects => Set<Project>();
+        public DbSet<User> Users => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace JurChat.Server.Persistence
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=10.10.11.109;Port=5432;Database=jurchat;Username=postgres;");
+            optionsBuilder.UseMySql( "Host=10.10.11.109;Port=3306;Database=jurchat;Username=admin;Password=Kpp228337!", new MySqlServerVersion(new Version(8, 0, 11)));
         }
     }
 }

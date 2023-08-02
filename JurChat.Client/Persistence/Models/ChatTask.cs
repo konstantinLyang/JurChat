@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,9 +10,9 @@ namespace JurChat.Client.Persistence.Models
         public int Id { get; set; }
 
         [Required]
-        public string? Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public string? Description { get; set; }
+        public string? Description { get; set; } = null;
 
         [Required]
         public DateTime CreateDateTime { get; set; }
@@ -25,22 +24,16 @@ namespace JurChat.Client.Persistence.Models
 
         public DateTime DeadLineDateTime { get; set; }
 
-        public Project? Project { get; set; }
+        public Project? Project { get; set; } = null;
 
         [Required]
         [ForeignKey("ProducerId")]
-        public User? Producer { get; set; }
+        public User Producer { get; set; } = null!;
         public int ProducerId { get; set; }
 
         [Required]
         [ForeignKey("ExecutorId")]
-        public User? Executor { get; set; }
+        public User Executor { get; set; } = null!;
         public int ExecutorId { get; set; }
-
-        public List<User>? Helpers { get; set; }
-
-        public List<User>? Auditors { get; set; }
-
-        public List<Message>? Messages { get; set; }
     }
 }

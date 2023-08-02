@@ -10,28 +10,28 @@ namespace JurChat.Server.Persistence.Models
 
         [Required]
         [ForeignKey("SenderId")]
-        public User Sender { get; set; }
+        public User Sender { get; set; } = null!;
         public int SenderId { get; set; }
 
         [ForeignKey("RecipientId")]
-        public User Recipient { get; set; }
+        public User Recipient { get; set; } = null!;
         public int RecipientId { get; set; }
 
         [ForeignKey("ChatId")]
-        public Chat Chat { get; set; }
+        public Chat Chat { get; set; } = null!;
         public int ChatId { get; set; }
 
         [ForeignKey("TaskId")]
-        public ChatTask Task { get; set; }
+        public ChatTask Task { get; set; } = null!;
         public int TaskId { get; set; }
 
         [ForeignKey("ProjectId")]
-        public Project Project { get; set; }
+        public Project Project { get; set; } = null!;
         public int ProjectId { get; set; }
 
-        public string Text { get; set; }
+        public string? Text { get; set; } = null;
 
-        public MessageFile File { get; set; }
+        public MessageFile? File { get; set; } = null;
 
         [Required]
         public DateTime CreatedDateTime { get; set; }

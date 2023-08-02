@@ -8,12 +8,10 @@ namespace JurChat.Client.Persistence.Models
         public int Id { get; set; }
         
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
         [Required]
-        public string ServerFilePath { get; set; }
-
-        public string LocalFilePath { get; set; }
+        public string ServerFilePath { get; set; } = null!;
 
         public bool IsImage { get; set; }
     }

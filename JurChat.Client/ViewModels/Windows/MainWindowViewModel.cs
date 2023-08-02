@@ -1,15 +1,30 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 using DevExpress.Mvvm;
+using JurChat.Client.Views.Pages;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace JurChat.Client.ViewModels.Windows
 {
-    internal class MainWindowViewModel : BindableBase
+    public class MainWindowViewModel : BindableBase
     {
-        public Page? Page { get; set; }
-
-        public MainWindowViewModel()
+        public MainWindowViewModel(IServiceProvider serviceProvider)
         {
-            
+            _serviceProvider = serviceProvider;
+            SettingsPage = _serviceProvider.GetRequiredService<SettingsPage>();
         }
+
+        private readonly IServiceProvider _serviceProvider;
+
+        public Page? Page { get; set; }
+        public Page? SettingsPage { get; set; }
+        public Visibility SettingsPageVisibility { get; set; } = Visibility.Collapsed;
+
+        #region Commands
+
+        public DelegateCommand CloseSettingsPage => new(() => { SettingsPageVisibility = Visibility.Collapsed; });
+
+        #endregion
     }
 }

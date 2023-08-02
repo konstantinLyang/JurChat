@@ -5,14 +5,12 @@ namespace JurChat.Client.Persistence
 {
     public sealed class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext() => Database.EnsureCreated();
-
-        public DbSet<Chat> Chats { get; set; }
-        public DbSet<ChatTask> ChatTasks { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<MessageFile> MessageFiles { get; set; }
-        public DbSet<Project> Projects { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Chat> Chats => Set<Chat>();
+        public DbSet<ChatTask> ChatTasks => Set<ChatTask>();
+        public DbSet<Message> Messages => Set<Message>();
+        public DbSet<MessageFile> MessageFiles => Set<MessageFile>();
+        public DbSet<Project> Projects => Set<Project>();
+        public DbSet<User> Users => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

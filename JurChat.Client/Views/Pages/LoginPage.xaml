@@ -7,26 +7,29 @@
         xmlns:jui="clr-namespace:JurChat.Client.UI.Controls;assembly=JurChat.Client.UI.Controls"
         xmlns:pages="clr-namespace:JurChat.Client.ViewModels.Pages"
         mc:Ignorable="d" Background="{StaticResource FirstBackgroundBrush}">
+    <Grid>
+        <Button Style="{StaticResource TransparentButton}" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="15,5" FontSize="15" Padding="0" Command="{Binding ShowSettingsPageCommand}" Cursor="Hand" FontWeight="Normal" Content="настройки"/>
 
-    <Border VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="10">
-        <StackPanel  VerticalAlignment="Center">
+        <Border VerticalAlignment="Center" HorizontalAlignment="Center" CornerRadius="10">
+            <StackPanel  VerticalAlignment="Center">
 
-            <TextBlock Text="Авторизация"  FontSize="18" Margin="0,0,0,15" Style="{StaticResource GeneralTitle}"/>
+                <TextBlock Text="Авторизация"  FontSize="18" Margin="0,0,0,15" Style="{StaticResource GeneralTitle}"/>
 
-            <TextBlock TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" Text="Пожалуйста, пройдите верификацию. Если Вы тут впервые - зарегистрируйтесь."
+                <TextBlock TextWrapping="Wrap" Width="280" HorizontalAlignment="Left" Text="Пожалуйста, пройдите верификацию. Если Вы тут впервые - зарегистрируйтесь."
                        FontSize="13"  Margin="0,5,0,20" Style="{StaticResource GeneralText}"/>
 
-            <jui:PlaceholderTextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Padding="8 2" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Placeholder="Логин*" BorderThickness="0,0,0,1" Height="40" Style="{StaticResource BaseTextBox}" Margin="0,15,0,0"/>
+                <jui:PlaceholderTextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" Padding="8 2" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Placeholder="Логин*" BorderThickness="0,0,0,1" Height="40" Style="{StaticResource BaseTextBox}" Margin="0,15,0,0"/>
 
-            <jui:PlaceholderTextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Padding="8 2" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Placeholder="Пароль*" BorderThickness="0,0,0,1" Height="40" Style="{StaticResource BaseTextBox}" Margin="0,15,0,15"/>
+                <jui:PlaceholderTextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Padding="8 2" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Placeholder="Пароль*" BorderThickness="0,0,0,1" Height="40" Style="{StaticResource BaseTextBox}" Margin="0,15,0,15"/>
 
-            <CheckBox IsChecked="{Binding RememberUser}" BorderThickness="1" FontSize="13" Padding="13,0,0,0" Content="Остваться в системе" Cursor="Hand" Margin="2,15"/>
+                <CheckBox IsChecked="{Binding RememberUser}" BorderThickness="1" FontSize="13" Padding="13,0,0,0" Content="Остваться в системе" Cursor="Hand" Margin="2,15"/>
 
-            <Button FontWeight="Normal" Content="Продолжить" Command="{Binding AuthorizationCommand}" Style="{StaticResource GeneralButton}" Height="40" FontSize="13" Margin="0,30,0,30"/>
+                <Button FontWeight="Normal" Content="Продолжить" Command="{Binding AuthorizationCommand}" Style="{StaticResource GeneralButton}" Height="40" FontSize="13" Margin="0,30,0,30"/>
 
-            <Button Cursor="Hand" Content="Регистрация" Style="{StaticResource TransparentButton}" Height="24" Margin="0,5" FontSize="12" Width="100" Command="{Binding OpenRegisterWindowCommand}"/>
+                <Button Cursor="Hand" Content="Регистрация" Style="{StaticResource TransparentButton}" Height="24" Margin="0,5" FontSize="12" Width="100" Command="{Binding OpenRegisterWindowCommand}"/>
 
-            <TextBlock Text="{Binding Info}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,15,0,0"/>
-        </StackPanel>
-    </Border>
+                <TextBlock Text="{Binding Info}" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,15,0,0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Page>

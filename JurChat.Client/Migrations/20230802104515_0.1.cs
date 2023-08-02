@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace JurChat.Client.Migrations
 {
     /// <inheritdoc />
-    public partial class @as : Migration
+    public partial class _01 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,48 +19,11 @@ namespace JurChat.Client.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
                     ServerFilePath = table.Column<string>(type: "TEXT", nullable: false),
-                    LocalFilePath = table.Column<string>(type: "TEXT", nullable: false),
                     IsImage = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MessageFiles", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Chats",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
-                    OwnerId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Chats", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ChatTasks",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: true),
-                    CreateDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    StartDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DoneDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    DeadLineDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ProjectId = table.Column<int>(type: "INTEGER", nullable: true),
-                    ProducerId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ExecutorId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ChatTasks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -71,29 +34,60 @@ namespace JurChat.Client.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     FirstName = table.Column<string>(type: "TEXT", nullable: false),
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
-                    FatherName = table.Column<string>(type: "TEXT", nullable: false),
-                    Telephone = table.Column<string>(type: "TEXT", nullable: false),
+                    FatherName = table.Column<string>(type: "TEXT", nullable: true),
+                    Telephone = table.Column<string>(type: "TEXT", nullable: true),
                     Mail = table.Column<string>(type: "TEXT", nullable: false),
-                    Photo = table.Column<string>(type: "TEXT", nullable: false),
+                    Photo = table.Column<string>(type: "TEXT", nullable: true),
                     Password = table.Column<string>(type: "TEXT", nullable: false),
                     CreateDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    LastVisitDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ChatTaskId = table.Column<int>(type: "INTEGER", nullable: true),
-                    ChatTaskId1 = table.Column<int>(type: "INTEGER", nullable: true)
+                    LastVisitDateTime = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Chats",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    OwnerId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Chats", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_ChatTasks_ChatTaskId",
-                        column: x => x.ChatTaskId,
-                        principalTable: "ChatTasks",
-                        principalColumn: "Id");
+                        name: "FK_Chats_Users_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Projects",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    Photo = table.Column<string>(type: "TEXT", nullable: true),
+                    OwnerId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Projects", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_ChatTasks_ChatTaskId1",
-                        column: x => x.ChatTaskId1,
-                        principalTable: "ChatTasks",
-                        principalColumn: "Id");
+                        name: "FK_Projects_Users_OwnerId",
+                        column: x => x.OwnerId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -121,22 +115,62 @@ namespace JurChat.Client.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Projects",
+                name: "ChatTasks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
-                    Photo = table.Column<string>(type: "TEXT", nullable: false),
-                    OwnerId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    CreateDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    StartDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DoneDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DeadLineDateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    ProjectId = table.Column<int>(type: "INTEGER", nullable: true),
+                    ProducerId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ExecutorId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Projects", x => x.Id);
+                    table.PrimaryKey("PK_ChatTasks", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Projects_Users_OwnerId",
-                        column: x => x.OwnerId,
+                        name: "FK_ChatTasks_Projects_ProjectId",
+                        column: x => x.ProjectId,
+                        principalTable: "Projects",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ChatTasks_Users_ExecutorId",
+                        column: x => x.ExecutorId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ChatTasks_Users_ProducerId",
+                        column: x => x.ProducerId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ProjectUser",
+                columns: table => new
+                {
+                    ParticipantsId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ProjectsId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProjectUser", x => new { x.ParticipantsId, x.ProjectsId });
+                    table.ForeignKey(
+                        name: "FK_ProjectUser_Projects_ProjectsId",
+                        column: x => x.ProjectsId,
+                        principalTable: "Projects",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ProjectUser_Users_ParticipantsId",
+                        column: x => x.ParticipantsId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -195,30 +229,6 @@ namespace JurChat.Client.Migrations
                     table.ForeignKey(
                         name: "FK_Messages_Users_SenderId",
                         column: x => x.SenderId,
-                        principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "ProjectUser",
-                columns: table => new
-                {
-                    ParticipantsId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ProjectsId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ProjectUser", x => new { x.ParticipantsId, x.ProjectsId });
-                    table.ForeignKey(
-                        name: "FK_ProjectUser_Projects_ProjectsId",
-                        column: x => x.ProjectsId,
-                        principalTable: "Projects",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_ProjectUser_Users_ParticipantsId",
-                        column: x => x.ParticipantsId,
                         principalTable: "Users",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -290,64 +300,11 @@ namespace JurChat.Client.Migrations
                 name: "IX_ProjectUser_ProjectsId",
                 table: "ProjectUser",
                 column: "ProjectsId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_ChatTaskId",
-                table: "Users",
-                column: "ChatTaskId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_ChatTaskId1",
-                table: "Users",
-                column: "ChatTaskId1");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Chats_Users_OwnerId",
-                table: "Chats",
-                column: "OwnerId",
-                principalTable: "Users",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ChatTasks_Projects_ProjectId",
-                table: "ChatTasks",
-                column: "ProjectId",
-                principalTable: "Projects",
-                principalColumn: "Id");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ChatTasks_Users_ExecutorId",
-                table: "ChatTasks",
-                column: "ExecutorId",
-                principalTable: "Users",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_ChatTasks_Users_ProducerId",
-                table: "ChatTasks",
-                column: "ProducerId",
-                principalTable: "Users",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Cascade);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_ChatTasks_Users_ExecutorId",
-                table: "ChatTasks");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_ChatTasks_Users_ProducerId",
-                table: "ChatTasks");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Projects_Users_OwnerId",
-                table: "Projects");
-
             migrationBuilder.DropTable(
                 name: "ChatUser");
 
@@ -358,19 +315,19 @@ namespace JurChat.Client.Migrations
                 name: "ProjectUser");
 
             migrationBuilder.DropTable(
+                name: "ChatTasks");
+
+            migrationBuilder.DropTable(
                 name: "Chats");
 
             migrationBuilder.DropTable(
                 name: "MessageFiles");
 
             migrationBuilder.DropTable(
-                name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "ChatTasks");
-
-            migrationBuilder.DropTable(
                 name: "Projects");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

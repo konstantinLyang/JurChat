@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using JurChat.Client.Services.Interfaces;
 using JurChat.Client.ViewModels.Windows;
 using JurChat.Client.Views.Pages;
@@ -16,7 +17,6 @@ namespace JurChat.Client.Services.Implementations
         private MainPage? _mainPage;
         private LoginPage? _loginPage;
         private RegisterPage? _registerPage;
-        private SettingsPage? _settingsPage;
 
         public void StartApplication()
         {
@@ -84,16 +84,9 @@ namespace JurChat.Client.Services.Implementations
 
         public void ShowSettingsPage()
         {
-            if (_settingsPage != null)
-            {
-                _mainWindowViewModel.Page = _settingsPage;
-                return;
-            }
-
-            _settingsPage = _serviceProvider.GetRequiredService<SettingsPage>();
-
-            _mainWindowViewModel.Page = _settingsPage;
+            _mainWindowViewModel!.SettingsPageVisibility = Visibility.Visible;
         }
+
 
         public UserDialogService(IServiceProvider serviceProvider)
         {

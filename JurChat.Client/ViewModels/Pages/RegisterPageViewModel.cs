@@ -196,6 +196,7 @@ namespace JurChat.Client.ViewModels.Pages
         #region Commands
 
         public RelayCommand ComeToLoginPageCommand => new(delegate { _userDialogService.ShowLoginPage(); });
+        public RelayCommand ShowSettingsPageCommand => new(delegate { _userDialogService.ShowSettingsPage(); });
         public RelayCommand ChangeUserImageCommand => new(delegate { _userDialogService.ShowLoginPage(); });
         public RelayCommand RegistrationCommand => new (delegate { }, CanRegistration);
 

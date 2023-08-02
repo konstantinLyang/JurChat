@@ -34,6 +34,7 @@
         <Button Style="{StaticResource TransparentButton}" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="15,5" FontSize="13" Padding="0" Command="{Binding ComeToLoginPageCommand}" Cursor="Hand">
             <Path Fill="Gray" Stroke="Gray" StrokeThickness="0.5" SnapsToDevicePixels="True" Data="M1.75 12C1.75 12.1989 1.82902 12.3897 1.96967 12.5303L8.96967 19.5303C9.26256 19.8232 9.73744 19.8232 10.0303 19.5303C10.3232 19.2374 10.3232 18.7626 10.0303 18.4697L4.31066 12.75L21.5 12.75C21.9142 12.75 22.25 12.4142 22.25 12C22.25 11.5858 21.9142 11.25 21.5 11.25L4.31066 11.25L10.0303 5.53033C10.3232 5.23744 10.3232 4.76256 10.0303 4.46967C9.73744 4.17678 9.26256 4.17678 8.96967 4.46967L1.96967 11.4697C1.82902 11.6103 1.75 11.8011 1.75 12Z"/>
         </Button>
+        <Button Style="{StaticResource TransparentButton}" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="15,5" FontSize="15" Padding="0" Command="{Binding ShowSettingsPageCommand}" Cursor="Hand" FontWeight="Normal" Content="настройки"/>
 
         <Border VerticalAlignment="Center" HorizontalAlignment="Center">
             <hc:ScrollViewer Margin="5">

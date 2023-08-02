@@ -9,15 +9,15 @@ namespace JurChat.Server.Persistence.Models
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
 
-        public string Description { get; set; }
+        public string? Description { get; set; } = null;
 
-        public string Photo { get; set; }
+        public string? Photo { get; set; } = null;
 
         [Required]
         [ForeignKey("OwnerId")]
-        public User Owner { get; set; }
+        public User Owner { get; set; } = null!;
         public int OwnerId { get; set; }
 
         public List<User> Participants { get; set; } = new();

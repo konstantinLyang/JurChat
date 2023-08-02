@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JurChat.Client.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230801082306_as")]
-    partial class @as
+    [Migration("20230802104515_0.1")]
+    partial class _01
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,7 +42,6 @@ namespace JurChat.Client.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -170,10 +169,6 @@ namespace JurChat.Client.Migrations
                     b.Property<bool>("IsImage")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("LocalFilePath")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -194,7 +189,6 @@ namespace JurChat.Client.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -205,7 +199,6 @@ namespace JurChat.Client.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Photo")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -222,17 +215,10 @@ namespace JurChat.Client.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ChatTaskId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("ChatTaskId1")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreateDateTime")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FatherName")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("FirstName")
@@ -255,18 +241,12 @@ namespace JurChat.Client.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Photo")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Telephone")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ChatTaskId");
-
-                    b.HasIndex("ChatTaskId1");
 
                     b.ToTable("Users");
                 });
@@ -368,7 +348,7 @@ namespace JurChat.Client.Migrations
                         .IsRequired();
 
                     b.HasOne("JurChat.Client.Persistence.Models.ChatTask", "Task")
-                        .WithMany("Messages")
+                        .WithMany()
                         .HasForeignKey("TaskId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -397,17 +377,6 @@ namespace JurChat.Client.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("JurChat.Client.Persistence.Models.User", b =>
-                {
-                    b.HasOne("JurChat.Client.Persistence.Models.ChatTask", null)
-                        .WithMany("Auditors")
-                        .HasForeignKey("ChatTaskId");
-
-                    b.HasOne("JurChat.Client.Persistence.Models.ChatTask", null)
-                        .WithMany("Helpers")
-                        .HasForeignKey("ChatTaskId1");
-                });
-
             modelBuilder.Entity("ProjectUser", b =>
                 {
                     b.HasOne("JurChat.Client.Persistence.Models.User", null)
@@ -421,15 +390,6 @@ namespace JurChat.Client.Migrations
                         .HasForeignKey("ProjectsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("JurChat.Client.Persistence.Models.ChatTask", b =>
-                {
-                    b.Navigation("Auditors");
-
-                    b.Navigation("Helpers");
-
-                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }

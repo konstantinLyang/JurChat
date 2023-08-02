@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using JurChat.Client.Persistence;
 using JurChat.Client.Services.Implementations;
 using JurChat.Client.Services.Interfaces;
 using JurChat.Client.ViewModels.Pages;
@@ -24,9 +25,13 @@ namespace JurChat.Client
             services.AddSingleton<SettingsPageViewModel>();
             services.AddSingleton<RegisterPageViewModel>();
 
+            services.AddDbContext<ApplicationDbContext>();
+
             services.AddTransient<LoginPageViewModel>();
 
             services.AddSingleton<IUserDialogService, UserDialogService>();
+            services.AddSingleton<IClientService, ClientService>();
+            services.AddSingleton<IApplicationSettingsService, ApplicationSettingsService>();
 
             services.AddSingleton(s => new MainWindow() { DataContext = _services.GetRequiredService<MainWindowViewModel>() });
             services.AddSingleton(s => new MainPage() { DataContext = _services.GetRequiredService<MainPageViewModel>() });

@@ -1,4 +1,6 @@
 ﻿using DevExpress.Mvvm;
+using JurChat.Client.Persistence;
+using JurChat.Client.Services.Interfaces;
 using Microsoft.AspNetCore.SignalR.Client;
 using DelegateCommand = DevExpress.Mvvm.DelegateCommand;
 
@@ -6,12 +8,16 @@ namespace JurChat.Client.ViewModels.Pages
 {
     public class MainPageViewModel : BindableBase
     { 
-        public MainPageViewModel()
+
+        public MainPageViewModel(ApplicationDbContext dbContext, IClientService clientService)
         {
-            
+            _context = dbContext;
+            _clientService = clientService;
         }
 
-        private HubConnection _connection;
+        private readonly ApplicationDbContext _context;
+        private readonly IClientService _clientService;
+
         public string MessageText { get; set; }
         public string ReceivedText { get; set; }
 
@@ -33,7 +39,6 @@ namespace JurChat.Client.ViewModels.Pages
         {
             if (!string.IsNullOrEmpty(MessageText))
             {
-                _connection.InvokeAsync("Send", MessageText);
             }
         }
 
