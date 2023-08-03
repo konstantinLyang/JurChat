@@ -29,12 +29,9 @@ namespace JurChat.Client.ViewModels.Pages
         public AsyncCommand AuthorizationCommand => new(OnAuthorization, CanAuthorizationCommand);
         private async Task OnAuthorization()
         {
-            if (await _clientService.Connect())
+            if (await _clientService.Authorized(Login, Password))
             {
-                if (await _clientService.Authorized(Login, Password))
-                {
-                    _userDialogService.ShowMainPage();
-                }
+                if (await _clientService.Connect()) _userDialogService.ShowMainPage();
             }
         }
         private bool CanAuthorizationCommand()

@@ -1,8 +1,10 @@
 ﻿using JurChat.Server.Hubs.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
 
 namespace JurChat.Server.Hubs
 {
+    [Authorize]
     public class ChatHub : Hub<IChatHub>
     {
         public ChatHub(ChatHubManager hubManager) => _chatHubManager = hubManager;
@@ -32,7 +34,7 @@ namespace JurChat.Server.Hubs
         }
 
         #endregion
-
+        
         public async Task UpdateUsersAsync()
         {
             var users = _chatHubManager.ConnectedUsers.Select(x => x.Id).ToList();

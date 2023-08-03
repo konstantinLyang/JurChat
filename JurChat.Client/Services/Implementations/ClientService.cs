@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 using JurChat.Client.Models;
+using JurChat.Client.Persistence.Models;
 using JurChat.Client.Services.Interfaces;
 using Microsoft.AspNetCore.SignalR.Client;
+using Newtonsoft.Json;
 
 namespace JurChat.Client.Services.Implementations
 {
@@ -16,21 +19,36 @@ namespace JurChat.Client.Services.Implementations
             _applicationSettings = applicationSettings;
         }
 
+        private AccessToken? _token;
+        private string access_token => _token.access_token;
+
         private readonly IApplicationSettingsService _applicationSettings;
 
         public HubConnection Connection { get; set; }
+
+        public bool IsConnected { get; set; }
+        public bool IsAuthorized { get; set; }
 
         public async Task<bool> Connect()
         {
             try
             {
-                var settings = _applicationSettings.GetSettings();
+                if (!IsConnected)
+                {
+                    var settings = _applicationSettings.GetSettings();
 
-                Connection = new HubConnectionBuilder()
-                    .WithUrl($"https://{settings!.Address}:{settings.Port}/chat")
-                    .Build();
+                    Connection = new HubConnectionBuilder()
+                        .WithUrl($"https://{settings!.Address}:{settings.Port}/chat", options =>
+                        {
+                            options.AccessTokenProvider = () => Task.FromResult(access_token);
+                        })
+                        .Build();
 
-                await Connection.StartAsync();
+                    await Connection.StartAsync();
+                    IsConnected = true;
+                    return true;
+                }
+
                 return true;
             }
             catch (Exception ex)
@@ -56,20 +74,15 @@ namespace JurChat.Client.Services.Implementations
         {
             var settings = _applicationSettings.GetSettings();
 
-            HttpClient client = new HttpClient();
+            HttpClient httpClient = new HttpClient();
 
-            client.BaseAddress = new Uri($"https://{settings!.Address}:{settings.Port}/api");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = await client.GetAsync($"/api/User/{login}");
+            httpClient.BaseAddress = new Uri($"https://{settings!.Address}:{settings.Port}");
 
-            if (response.StatusCode == HttpStatusCode.Found)
-            {
-                return true;
-            }
+            var response = await httpClient.PostAsJsonAsync($"https://{settings!.Address}:{settings.Port}/login", new User(){ Mail = login, Password = password});
 
-            return false;
+            _token = JsonConvert.DeserializeObject<AccessToken>(response.Content.ReadAsStringAsync().Result);
+
+            return _token != null;
         }
     }
 }
