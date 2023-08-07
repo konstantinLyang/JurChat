@@ -34,8 +34,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurChat.Client.Infrastructure.EntityFramework", "JurChat.Client.Infrastructure.EntityFramework\JurChat.Client.Infrastructure.EntityFramework.csproj", "{257E37DA-6B59-497D-95ED-F6A37690D382}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurChat.Client.Infrastructure.Repositories.Implementations", "JurChat.Client.Infrastructure.Enities\JurChat.Client.Infrastructure.Repositories.Implementations.csproj", "{D7FE0356-FEC9-4188-80A4-BBD23AFD14C8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{D7563FC6-7535-4FEE-857C-12F9F823559B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{82BE16BA-2586-4678-90B3-398A685644ED}"
@@ -46,9 +44,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurChat.Server.Services.Abs
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurChat.Server.Services.Contracts", "JurChat.Server.Services.Contracts\JurChat.Server.Services.Contracts.csproj", "{13CEE7B8-8B71-4194-AB45-828379245BD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JurChat.Server.Services.Implementations", "JurChat.Server.Services.Implementations\JurChat.Server.Services.Implementations.csproj", "{3AD669EA-AF4E-4426-A0B2-7E1799A0E46E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurChat.Server.Services.Implementations", "JurChat.Server.Services.Implementations\JurChat.Server.Services.Implementations.csproj", "{3AD669EA-AF4E-4426-A0B2-7E1799A0E46E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JurChat.Server.Services.Repositories.Abstractions", "JurChat.Server.Services.Repositories.Abstractions\JurChat.Server.Services.Repositories.Abstractions.csproj", "{A1D27952-5CF1-46FB-A4E9-30500CCD09ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JurChat.Server.Services.Repositories.Abstractions", "JurChat.Server.Services.Repositories.Abstractions\JurChat.Server.Services.Repositories.Abstractions.csproj", "{A1D27952-5CF1-46FB-A4E9-30500CCD09ED}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -88,10 +86,6 @@ Global
 		{257E37DA-6B59-497D-95ED-F6A37690D382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{257E37DA-6B59-497D-95ED-F6A37690D382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{257E37DA-6B59-497D-95ED-F6A37690D382}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D7FE0356-FEC9-4188-80A4-BBD23AFD14C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D7FE0356-FEC9-4188-80A4-BBD23AFD14C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D7FE0356-FEC9-4188-80A4-BBD23AFD14C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D7FE0356-FEC9-4188-80A4-BBD23AFD14C8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{760850FE-F6B2-469F-9F52-443208F422F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{760850FE-F6B2-469F-9F52-443208F422F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{760850FE-F6B2-469F-9F52-443208F422F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -124,7 +118,6 @@ Global
 		{1774061E-557D-488B-8F6A-84059D897AD3} = {E3B44980-1980-4F84-8074-902E1C620BF6}
 		{267F9915-13C8-4C73-8357-B219D341A989} = {102F0552-6FA3-48C7-B52D-211128073B2C}
 		{257E37DA-6B59-497D-95ED-F6A37690D382} = {267F9915-13C8-4C73-8357-B219D341A989}
-		{D7FE0356-FEC9-4188-80A4-BBD23AFD14C8} = {267F9915-13C8-4C73-8357-B219D341A989}
 		{D7563FC6-7535-4FEE-857C-12F9F823559B} = {102F0552-6FA3-48C7-B52D-211128073B2C}
 		{82BE16BA-2586-4678-90B3-398A685644ED} = {102F0552-6FA3-48C7-B52D-211128073B2C}
 		{116FA0F0-7049-4164-93F5-DC71D8E8E3DF} = {E3B44980-1980-4F84-8074-902E1C620BF6}
