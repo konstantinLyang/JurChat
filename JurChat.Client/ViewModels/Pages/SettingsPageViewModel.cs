@@ -1,8 +1,8 @@
 ﻿using DevExpress.Mvvm;
-using JurChat.Client.Models;
-using JurChat.Client.Services.Interfaces;
+using JurChat.Presentation.App.Models;
+using JurChat.Presentation.App.Services.Interfaces;
 
-namespace JurChat.Client.ViewModels.Pages
+namespace JurChat.Presentation.App.ViewModels.Pages
 {
     public class SettingsPageViewModel : BindableBase
     {

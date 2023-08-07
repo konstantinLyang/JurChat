@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using DevExpress.Mvvm;
 using HandyControl.Tools.Command;
-using JurChat.Client.Services.Interfaces;
+using JurChat.Presentation.App.Services.Interfaces;
 
-namespace JurChat.Client.ViewModels.Pages
+namespace JurChat.Presentation.App.ViewModels.Pages
 {
     public class RegisterPageViewModel : BindableBase, INotifyDataErrorInfo
     {

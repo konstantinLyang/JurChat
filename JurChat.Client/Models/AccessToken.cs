@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace JurChat.Client.Models
+﻿namespace JurChat.Presentation.App.Models
 {
     public class AccessToken
     {

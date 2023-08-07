@@ -1,4 +1,4 @@
-﻿namespace JurChat.Server.Hubs.Infrastructure
+﻿namespace JurChat.Web.Hubs.Infrastructure
 {
     public class UserConnection
     {

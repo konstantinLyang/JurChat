@@ -2,10 +2,10 @@
 using System.Windows;
 using System.Windows.Controls;
 using DevExpress.Mvvm;
-using JurChat.Client.Views.Pages;
+using JurChat.Presentation.App.Views.Pages;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JurChat.Client.ViewModels.Windows
+namespace JurChat.Presentation.App.ViewModels.Windows
 {
     public class MainWindowViewModel : BindableBase
     {

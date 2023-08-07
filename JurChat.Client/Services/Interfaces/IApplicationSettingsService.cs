@@ -1,6 +1,6 @@
-﻿using JurChat.Client.Models;
+﻿using JurChat.Presentation.App.Models;
 
-namespace JurChat.Client.Services.Interfaces
+namespace JurChat.Presentation.App.Services.Interfaces
 {
     public interface IApplicationSettingsService
     {

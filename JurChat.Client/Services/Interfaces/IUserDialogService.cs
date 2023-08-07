@@ -1,4 +1,4 @@
-﻿namespace JurChat.Client.Services.Interfaces
+﻿namespace JurChat.Presentation.App.Services.Interfaces
 {
     public interface IUserDialogService
     {

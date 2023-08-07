@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Windows;
-using JurChat.Client.Services.Interfaces;
-using JurChat.Client.ViewModels.Windows;
-using JurChat.Client.Views.Pages;
-using JurChat.Client.Views.Windows;
+using JurChat.Presentation.App.Services.Interfaces;
+using JurChat.Presentation.App.ViewModels.Windows;
+using JurChat.Presentation.App.Views.Pages;
+using JurChat.Presentation.App.Views.Windows;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JurChat.Client.Services.Implementations
+namespace JurChat.Presentation.App.Services.Implementations
 {
     public class UserDialogService : IUserDialogService
     {

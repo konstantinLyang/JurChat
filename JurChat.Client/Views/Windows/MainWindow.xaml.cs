@@ -1,4 +1,4 @@
-﻿namespace JurChat.Client.Views.Windows
+﻿namespace JurChat.Presentation.App.Views.Windows
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

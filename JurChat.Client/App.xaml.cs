@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Windows;
-using JurChat.Client.Persistence;
-using JurChat.Client.Services.Implementations;
-using JurChat.Client.Services.Interfaces;
-using JurChat.Client.ViewModels.Pages;
-using JurChat.Client.ViewModels.Windows;
-using JurChat.Client.Views.Pages;
-using JurChat.Client.Views.Windows;
+using JurChat.Client.Infrastructure.EntityFramework;
+using JurChat.Presentation.App.Services.Implementations;
+using JurChat.Presentation.App.Services.Interfaces;
+using JurChat.Presentation.App.ViewModels.Pages;
+using JurChat.Presentation.App.ViewModels.Windows;
+using JurChat.Presentation.App.Views.Pages;
+using JurChat.Presentation.App.Views.Windows;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JurChat.Client
+namespace JurChat.Presentation.App
 {
-    public partial class App : Application
+    public partial class App
     {
         public IServiceProvider _services;
-        public IServiceProvider Services => _services??= InitializeServices().BuildServiceProvider();
+        public IServiceProvider Services => _services ??= InitializeServices().BuildServiceProvider();
 
         public IServiceCollection InitializeServices()
         {
@@ -25,7 +25,7 @@ namespace JurChat.Client
             services.AddSingleton<SettingsPageViewModel>();
             services.AddSingleton<RegisterPageViewModel>();
 
-            services.AddDbContext<ApplicationDbContext>();
+            services.AddDbContext<DatabaseContext>();
 
             services.AddTransient<LoginPageViewModel>();
 

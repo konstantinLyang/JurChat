@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace JurChat.Client.Views.Pages
+namespace JurChat.Presentation.App.Views.Pages
 {
     public partial class MainPage : Page
     {

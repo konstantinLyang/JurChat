@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
-using JurChat.Client.Models;
-using JurChat.Client.Services.Interfaces;
+using JurChat.Presentation.App.Models;
+using JurChat.Presentation.App.Services.Interfaces;
 using Newtonsoft.Json;
 
-namespace JurChat.Client.Services.Implementations
+namespace JurChat.Presentation.App.Services.Implementations
 {
     public class ApplicationSettingsService : IApplicationSettingsService
     {

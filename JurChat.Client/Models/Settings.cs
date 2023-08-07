@@ -1,4 +1,4 @@
-﻿namespace JurChat.Client.Models
+﻿namespace JurChat.Presentation.App.Models
 {
     public class Settings
     {
