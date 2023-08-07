@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using JurChat.Client.Models;
-using JurChat.Client.Persistence.Models;
-using JurChat.Client.Services.Interfaces;
+using JurChat.Domain.Entities;
+using JurChat.Presentation.App.Models;
+using JurChat.Presentation.App.Services.Interfaces;
 using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 
-namespace JurChat.Client.Services.Implementations
+namespace JurChat.Presentation.App.Services.Implementations
 {
     public class ClientService : IClientService
     {
@@ -20,7 +18,7 @@ namespace JurChat.Client.Services.Implementations
         }
 
         private AccessToken? _token;
-        private string access_token => _token.access_token;
+        private string AccessToken => _token!.access_token;
 
         private readonly IApplicationSettingsService _applicationSettings;
 
@@ -40,7 +38,7 @@ namespace JurChat.Client.Services.Implementations
                     Connection = new HubConnectionBuilder()
                         .WithUrl($"https://{settings!.Address}:{settings.Port}/chat", options =>
                         {
-                            options.AccessTokenProvider = () => Task.FromResult(access_token);
+                            options.AccessTokenProvider = () => Task.FromResult(AccessToken);
                         })
                         .Build();
 
@@ -70,7 +68,7 @@ namespace JurChat.Client.Services.Implementations
             }
         }
 
-        public async Task<bool> Authorized(string login, string password)
+        public async Task<bool> Authorize(string login, string password)
         {
             var settings = _applicationSettings.GetSettings();
 

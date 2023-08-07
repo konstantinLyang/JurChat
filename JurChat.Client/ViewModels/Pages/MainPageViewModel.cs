@@ -1,21 +1,20 @@
 ﻿using DevExpress.Mvvm;
-using JurChat.Client.Persistence;
-using JurChat.Client.Services.Interfaces;
-using Microsoft.AspNetCore.SignalR.Client;
+using JurChat.Client.Infrastructure.EntityFramework;
+using JurChat.Presentation.App.Services.Interfaces;
 using DelegateCommand = DevExpress.Mvvm.DelegateCommand;
 
-namespace JurChat.Client.ViewModels.Pages
+namespace JurChat.Presentation.App.ViewModels.Pages
 {
     public class MainPageViewModel : BindableBase
     { 
 
-        public MainPageViewModel(ApplicationDbContext dbContext, IClientService clientService)
+        public MainPageViewModel(DatabaseContext dbContext, IClientService clientService)
         {
             _context = dbContext;
             _clientService = clientService;
         }
 
-        private readonly ApplicationDbContext _context;
+        private readonly DatabaseContext _context;
         private readonly IClientService _clientService;
 
         public string MessageText { get; set; }

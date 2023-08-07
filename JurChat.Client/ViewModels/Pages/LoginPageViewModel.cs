@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using DevExpress.Mvvm;
-using JurChat.Client.Services.Interfaces;
+using JurChat.Presentation.App.Services.Interfaces;
 
-namespace JurChat.Client.ViewModels.Pages
+namespace JurChat.Presentation.App.ViewModels.Pages
 {
     public class LoginPageViewModel : BindableBase
     {
@@ -29,7 +29,7 @@ namespace JurChat.Client.ViewModels.Pages
         public AsyncCommand AuthorizationCommand => new(OnAuthorization, CanAuthorizationCommand);
         private async Task OnAuthorization()
         {
-            if (await _clientService.Authorized(Login, Password))
+            if (await _clientService.Authorize(Login, Password))
             {
                 if (await _clientService.Connect()) _userDialogService.ShowMainPage();
             }

@@ -1,18 +1,19 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:JurChat.Client.UI.Controls"
-    xmlns:converters="clr-namespace:JurChat.Client.UI.Controls.Converters">
+    xmlns:local="clr-namespace:JurChat.Presentation.Client.UI.Controls"
+    xmlns:controls="clr-namespace:JurChat.Presentation.Client.UI.Controls"
+    xmlns:converters="clr-namespace:JurChat.Presentation.Client.UI.Controls.Converters">
 
-    <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type local:PlaceholderTextBox}">
+    <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type controls:PlaceholderTextBox}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type local:PlaceholderTextBox}">
+                <ControlTemplate TargetType="{x:Type controls:PlaceholderTextBox}">
                     <ControlTemplate.Resources>
                         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
                         <converters:AddLeftPaddingConverter x:Key="AddLeftPaddingConverter"/>
                     </ControlTemplate.Resources>
-                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type local:PlaceholderTextBox}}, Mode=TwoWay}" BorderThickness="{TemplateBinding BorderThickness}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding CornerRadius, RelativeSource={RelativeSource AncestorType={x:Type controls:PlaceholderTextBox}}, Mode=TwoWay}" BorderThickness="{TemplateBinding BorderThickness}">
                         <Grid>
                             <ScrollViewer x:Name="PART_ContentHost"/>
                             <TextBlock Padding="{TemplateBinding Padding, Converter={StaticResource AddLeftPaddingConverter}, ConverterParameter=3}"

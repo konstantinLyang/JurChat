@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
 
-namespace JurChat.Client.Services.Implementations
+namespace JurChat.Presentation.App.Services.Implementations
 {
     public class UserDataService
     {

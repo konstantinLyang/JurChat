@@ -1,13 +1,13 @@
-﻿<Page x:Class="JurChat.Client.Views.Pages.MainPage"
+﻿<Page x:Class="JurChat.Presentation.App.Views.Pages.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:pages="clr-namespace:JurChat.Client.ViewModels.Pages"
-      d:DataContext="{d:DesignInstance pages:MainPageViewModel, IsDesignTimeCreatable=True}"
+      d:DataContext="{d:DesignInstance pages1:MainPageViewModel, IsDesignTimeCreatable=True}"
       xmlns:hc="https://handyorg.github.io/handycontrol"
-      xmlns:jui="clr-namespace:JurChat.Client.UI.Controls;assembly=JurChat.Client.UI.Controls"
+      xmlns:controls="clr-namespace:JurChat.Presentation.Client.UI.Controls;assembly=JurChat.Presentation.Client.UI.Controls"
+      xmlns:pages1="clr-namespace:JurChat.Presentation.App.ViewModels.Pages"
       mc:Ignorable="d" Title="MainPage" SizeChanged="Page_SizeChanged">
 
     <Page.Resources>
@@ -64,12 +64,12 @@
                             <RowDefinition MinHeight="45" MaxHeight="45"/>
                         </Grid.RowDefinitions>
 
-                        <jui:PlaceholderTextBox Grid.Row="0" xml:lang="ru-RU" SpellCheck.IsEnabled="True" MaxHeight="225" MaxLength="4078" Placeholder="Печатать..." AcceptsReturn="True" Grid.RowSpan="2" Style="{StaticResource MessageTextBox}"  Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}"
+                        <controls:PlaceholderTextBox Grid.Row="0" xml:lang="ru-RU" SpellCheck.IsEnabled="True" MaxHeight="225" MaxLength="4078" Placeholder="Печатать..." AcceptsReturn="True" Grid.RowSpan="2" Style="{StaticResource MessageTextBox}"  Text="{Binding MessageText, UpdateSourceTrigger=PropertyChanged}"
                                             Grid.Column="1">
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding SendMessageCommand}"/>
                             </TextBox.InputBindings>
-                        </jui:PlaceholderTextBox>
+                        </controls:PlaceholderTextBox>
 
                         <Button Grid.Row="1" IsDefault="True" Style="{StaticResource TransparentButton}" Grid.Column="0" Command="{Binding SendFileCommand}" Cursor="Hand">
                             <Path Height="21" Width="21" Data="M1.06767 6.85704C0.313466 5.64217 0.463737 4.02545 1.51848 2.97071C2.74847 1.74072 4.74267 1.74072 5.97265 2.97071L12.0556 9.05368L12.0581 9.05624L16.3227 13.3208C16.9611 13.9592 16.9611 14.9942 16.3227 15.6326C15.6843 16.271 14.6493 16.271 14.0109 15.6326L4.725 6.34676C4.68594 6.3077 4.68594 6.24439 4.725 6.20533C4.76405 6.16628 4.82736 6.16628 4.86642 6.20533L14.1523 15.4912C14.7126 16.0515 15.621 16.0515 16.1812 15.4912C16.7415 14.9309 16.7415 14.0225 16.1812 13.4622L6.89538 4.17637L6.89293 4.17383L5.83123 3.11213C4.67935 1.96025 2.81178 1.96025 1.6599 3.11213C0.563181 4.20885 0.510667 5.95437 1.50236 7.11322L12.0593 17.6701C13.7894 19.4003 16.5945 19.4003 18.3246 17.6701C20.0547 15.94 20.0547 13.1349 18.3246 11.4048L7.49051 0.57071C7.45146 0.531658 7.45146 0.468342 7.49051 0.429289C7.52956 0.390237 7.59288 0.390237 7.63193 0.429289L18.466 11.2634C20.2743 13.0716 20.2743 16.0033 18.466 17.8116C16.6578 19.6198 13.7261 19.6198 11.9179 17.8116L7.63712 13.5308C7.62411 13.526 7.61192 13.5183 7.60146 13.5079L1.51848 7.42488C1.4615 7.36789 1.40716 7.30927 1.35545 7.24916L1.08376 6.97746C1.05112 6.94483 1.04576 6.89525 1.06767 6.85704Z" 
@@ -106,13 +106,13 @@
                         </Grid.ColumnDefinitions>
 
                         <!--#region Search TextBox-->
-                        <jui:PlaceholderTextBox Grid.Column="0" Placeholder="Поиск.." Background="{StaticResource TitleBarBrush}" Padding="10,0,10,0" Margin="10,0,0,0" Style="{StaticResource BaseTextBox}" BorderThickness="1.5" CornerRadius="15" Text="{Binding SearchBox, UpdateSourceTrigger=PropertyChanged}">
+                        <controls:PlaceholderTextBox Grid.Column="0" Placeholder="Поиск.." Background="{StaticResource TitleBarBrush}" Padding="10,0,10,0" Margin="10,0,0,0" Style="{StaticResource BaseTextBox}" BorderThickness="1.5" CornerRadius="15" Text="{Binding SearchBox, UpdateSourceTrigger=PropertyChanged}">
                             <b:Interaction.Triggers>
                                 <b:EventTrigger EventName="TextChanged">
                                     <b:InvokeCommandAction Command="{Binding }"/>
                                 </b:EventTrigger>
                             </b:Interaction.Triggers>
-                        </jui:PlaceholderTextBox>
+                        </controls:PlaceholderTextBox>
                         <!--#endregion-->
 
                         <!--#region Dock panel Button-->

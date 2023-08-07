@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-namespace JurChat.Client.UI.Controls
+
+namespace JurChat.Presentation.Client.UI.Controls
 {
     public class PlaceholderTextBox : TextBox
     {

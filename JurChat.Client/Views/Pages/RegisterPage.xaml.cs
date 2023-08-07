@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace JurChat.Client.Views.Pages
+namespace JurChat.Presentation.App.Views.Pages
 {
     /// <summary>
     /// Логика взаимодействия для RegisterPage.xaml
