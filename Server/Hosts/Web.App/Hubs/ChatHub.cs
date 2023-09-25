@@ -1,8 +1,8 @@
-﻿using JurChat.Web.Hubs.Infrastructure;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.SignalR;
+using Web.App.Hubs.Infrastructure;
 
-namespace JurChat.Web.Hubs
+namespace Web.App.Hubs
 {
     [Authorize]
     public class ChatHub : Hub<IChatHub>

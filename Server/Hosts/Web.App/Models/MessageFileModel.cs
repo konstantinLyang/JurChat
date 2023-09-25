@@ -1,4 +1,4 @@
-﻿namespace JurChat.Web.Models
+﻿namespace Web.App.Models
 {
     public class MessageFileModel
     {

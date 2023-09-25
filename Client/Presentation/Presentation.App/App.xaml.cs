@@ -23,9 +23,7 @@ namespace Presentation.App
             services.AddSingleton<MainPageViewModel>();
             services.AddSingleton<SettingsPageViewModel>();
             services.AddSingleton<RegisterPageViewModel>();
-
-            services.AddDbContext<DatabaseContext>();
-
+            
             services.AddTransient<LoginPageViewModel>();
 
             services.AddSingleton<IUserDialogService, UserDialogService>();

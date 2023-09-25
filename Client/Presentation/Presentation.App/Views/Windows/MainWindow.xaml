@@ -5,6 +5,7 @@
                   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                   xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
                   xmlns:hc="https://handyorg.github.io/handycontrol"
+                  xmlns:windows="clr-namespace:Presentation.App.ViewModels.Windows"
                   ShowMinButton="True"
                   d:DataContext="{d:DesignInstance windows:MainWindowViewModel, IsDesignTimeCreatable=True}"
                   mc:Ignorable="d" BorderThickness="0"

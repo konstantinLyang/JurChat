@@ -21,4 +21,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Presentation.UI.Controls\Presentation.UI.Controls.csproj" />
+    <ProjectReference Include="..\Presentation.UI\Presentation.UI.csproj" />
+  </ItemGroup>
 </Project>

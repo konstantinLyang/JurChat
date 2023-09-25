@@ -4,12 +4,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       d:DataContext="{d:DesignInstance pages:RegisterPageViewModel, IsDesignTimeCreatable=True}"
-      xmlns:controls="clr-namespace:JurChat.Presentation.Client.UI.Controls;assembly=JurChat.Presentation.Client.UI.Controls"
       xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:controls1="clr-namespace:Presentation.UI.Controls;assembly=Presentation.UI.Controls"
+      xmlns:pages="clr-namespace:Presentation.App.ViewModels.Pages"
       mc:Ignorable="d" Background="{StaticResource FirstBackgroundBrush}">
 
     <Page.Resources>
-        <Style TargetType="controls:PlaceholderTextBox" BasedOn="{StaticResource BaseTextBox}">
+        <Style TargetType="controls1:PlaceholderTextBox" BasedOn="{StaticResource BaseTextBox}">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="ToolTip"
@@ -48,13 +49,13 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <controls:PlaceholderTextBox Grid.Column="0" Placeholder="Фамилия*" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
-                            <controls:PlaceholderTextBox Grid.Column="1" Placeholder="Имя*" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
+                            <controls1:PlaceholderTextBox Grid.Column="0" Placeholder="Фамилия*" Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
+                            <controls1:PlaceholderTextBox Grid.Column="1" Placeholder="Имя*" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
                         </Grid>
 
-                        <controls:PlaceholderTextBox Text="{Binding FatherName, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Отчество" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
-                        <controls:PlaceholderTextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Почта" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
-                        <controls:PlaceholderTextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Логин*" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
+                        <controls1:PlaceholderTextBox Text="{Binding FatherName, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Отчество" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
+                        <controls1:PlaceholderTextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Почта" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
+                        <controls1:PlaceholderTextBox Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Логин*" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
 
                         <Grid Margin="0,5">
                             <Grid.ColumnDefinitions>
@@ -62,8 +63,8 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <controls:PlaceholderTextBox Grid.Column="0" Text="{Binding FirstPassword, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Пароль*" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
-                            <controls:PlaceholderTextBox Grid.Column="1" Text="{Binding SecondPassword, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Подтвердите пароль*" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
+                            <controls1:PlaceholderTextBox Grid.Column="0" Text="{Binding FirstPassword, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Пароль*" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
+                            <controls1:PlaceholderTextBox Grid.Column="1" Text="{Binding SecondPassword, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Подтвердите пароль*" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
                         </Grid>
 
                         <Grid Margin="0,5">
@@ -72,7 +73,7 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
 
-                            <controls:PlaceholderTextBox Grid.Column="0" Text="{Binding NickName, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Никнейм*" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
+                            <controls1:PlaceholderTextBox Grid.Column="0" Text="{Binding NickName, UpdateSourceTrigger=PropertyChanged}" BorderBrush="{StaticResource GeneralBorderThinkersBrush}" Margin="5" Placeholder="Никнейм*" BorderThickness="0,0,0,1" Validation.ErrorTemplate="{StaticResource validationFailed}"/>
 
                             <Grid Grid.Column="1" >
                                 <Button Width="100" Height="100" Padding="0" Style="{StaticResource TransparentButton}" Command="{Binding ChangeUserImageCommand}" Cursor="Hand">

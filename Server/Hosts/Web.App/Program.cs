@@ -1,9 +1,9 @@
-using JurChat.Server.Services.Abstractions;
-using JurChat.Server.Services.Implementations;
-using JurChat.Web;
-using JurChat.Web.Hubs;
-using JurChat.Web.Hubs.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Services.Abstractions;
+using Services.Implementations;
+using Web.App;
+using Web.App.Hubs;
+using Web.App.Hubs.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 

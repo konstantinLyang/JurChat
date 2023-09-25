@@ -6,32 +6,24 @@ namespace Presentation.App.ViewModels.Pages
 {
     public class MainPageViewModel : BindableBase
     { 
-
-        public MainPageViewModel(DatabaseContext dbContext, IClientService clientService)
+        public MainPageViewModel(IClientService clientService)
         {
-            _context = dbContext;
             _clientService = clientService;
         }
-
-        private readonly DatabaseContext _context;
+        
         private readonly IClientService _clientService;
 
-        public string MessageText { get; set; }
-        public string ReceivedText { get; set; }
+        public string MessageText { get; set; } = "";
+        public string ReceivedText { get; set; } = "";
 
         #region Fields
 
-        public string SearchBox { get; set; }
+        public string SearchBox { get; set; } = "";
 
         #endregion
 
         #region Commands
-
-        public DelegateCommand FindUserCommand;
-
-
-        public DelegateCommand OpenRightPanelCommand;
-
+        
         public DelegateCommand SendMessageCommand => new(OnSendMessage);
         private void OnSendMessage()
         {

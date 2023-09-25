@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JurChat.Server.Services.Contracts\JurChat.Server.Services.Contracts.csproj" />
+    <ProjectReference Include="..\Server.Services.Contracts\JurChat.Server.Services.Contracts.csproj" />
     <ProjectReference Include="..\Services.Contracts\Services.Contracts.csproj" />
   </ItemGroup>
 

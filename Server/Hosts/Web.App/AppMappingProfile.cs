@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using JurChat.Server.Infrastructure.Repositories.Implementations;
-using JurChat.Web.Models;
+using Infrastructure.Repositories.Implementations;
+using Web.App.Models;
 
-namespace JurChat.Web
+namespace Web.App
 {
     public class AppMappingProfile : Profile
     {
